@@ -1,29 +1,31 @@
 :root {
-  --primary-color: #f0f0f5;
-  --primary-dark: #98a7ba;
-  --button-hover: #7b828d;
-  --button-active: #5b5f68;
-  --header-text: #ffb300;
-  --primary-border: #595f64;
-  --text-color: #222;
+  --primary-color: #e6e9f0;    
+  --primary-dark: #cfd4dc;     
+  --button-hover: #d6dbec;   
+  --button-active: #c4c9d8;    
+  --header-text: #b37200;         
+  --primary-border: #b1b8c1a5;   
+  --text-color: #2a2e3a;          
+  --accent-color: #ffa407;        
 }
 
 .darkmode {
   --primary-color: #2a2e3a;
-  --primary-dark: #1c1f26;
-  --button-hover: #444856;
+  --primary-dark: #1e222d;
+  --button-hover: #3a3f4e;
   --button-active: #2a2d35;
   --header-text: #fac650;
   --primary-border: #6b7d99a5;
   --text-color: #f4f4f4;
+  --accent-color: #ffa407;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.3s ease;
-  font-family: 'Tiny5', monospace;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
@@ -31,40 +33,129 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-}
-
-.toggle-theme {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  background-color: rgba(76, 175, 80, 0);
-  color: rgb(173, 86, 0);
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.darkmode .toggle-theme {
-  color: var(--header-text);
+  padding-top: 100px;
+  padding-bottom: 80px;
 }
 
 .header {
+  position: fixed;
+  top: 0;
   width: 100%;
   background-color: var(--primary-dark);
   color: var(--header-text);
   text-align: center;
   padding: 20px 0;
-  top: 0;
-  left: 0;
-  position: fixed;
+  font-size: 1.5rem;
+  z-index: 10;
 }
 
-footer {
+.toggle-theme {
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: var(--header-text);
+  z-index: 20;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  width: 100%;
+}
+
+.calculator {
+  background-color: var(--primary-dark);
+  border-radius: 16px;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.display {
+  width: 100%;
+  height: 80px;
+  font-size: 2rem;
+  padding: 10px 15px;
+  text-align: right;
+  border: none;
+  border-radius: 10px;
+  background-color: #000;
+  color: #0f0;
+}
+
+.buttonsTwo {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  width: 50%;
+  align-items: center;
+  margin-left: auto;
+
+}
+
+.buttonsTwo .btn {
+  background-color: var(--primary-color);
+  font-size: 1rem;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+}
+
+.btn:active {
+  background-color: var(--button-active);
+  transform: scale(0.95);
+}
+
+.operator {
+  background-color: var(--accent-color);
+  color: #000;
+  font-weight: bold;
+}
+
+.operator.equal {
+  border-radius: 50%;
+}
+
+.zero {
+  grid-column: span 1;
+}
+
+.footer {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -82,21 +173,4 @@ footer {
   width: 24px;
   height: 24px;
   filter: invert(100%);
-}
-
-.body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--primary-color);
-}
-.calculator {
-  background-color: var(--primary-dark);
-  border: 1px solid var(--primary-border);
-  border-radius: 10px;
-  padding: 20px;
-  width: 350px;
-  height: 600px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
