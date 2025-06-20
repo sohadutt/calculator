@@ -3,7 +3,7 @@
   --primary-dark: #cfd4dc;     
   --button-hover: #d6dbec;   
   --button-active: #c4c9d8;    
-  --header-text: #b37200;         
+  --header-text: #f99500;         
   --primary-border: #b1b8c1a5;   
   --text-color: #2a2e3a;          
   --accent-color: #ffa407;        
@@ -172,5 +172,7 @@ body {
 .github-logo {
   width: 24px;
   height: 24px;
+}
+.darkmode .github-logo {
   filter: invert(100%);
 }
