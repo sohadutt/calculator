@@ -14,7 +14,7 @@
   --button-hover: #444856;
   --button-active: #2a2d35;
   --header-text: #fac650;
-  --primary-border: #9aa3b1;
+  --primary-border: #6b7d99a5;
   --text-color: #f4f4f4;
 }
 
@@ -30,6 +30,10 @@ body {
   background-color: var(--primary-color);
   color: var(--text-color);
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .toggle-theme {
@@ -42,10 +46,22 @@ body {
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
+  z-index: 1000;
 }
 
 .darkmode .toggle-theme {
   color: var(--header-text);
+}
+
+.header {
+  width: 100%;
+  background-color: var(--primary-dark);
+  color: var(--header-text);
+  text-align: center;
+  padding: 20px 0;
+  top: 0;
+  left: 0;
+  position: fixed;
 }
 
 footer {
@@ -66,4 +82,21 @@ footer {
   width: 24px;
   height: 24px;
   filter: invert(100%);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+.calculator {
+  background-color: var(--primary-dark);
+  border: 1px solid var(--primary-border);
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  height: 600px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
