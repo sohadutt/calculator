@@ -27,3 +27,10 @@ function calculate(operation, a, b) {
             throw new Error("Unknown operation");
     }
 }
+
+let input = '';
+let firstNum = null;
+let operator = null;
+const buttons = document.querySelectorAll('.button');
+const display = document.getElementById('display');
+
