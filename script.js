@@ -37,7 +37,14 @@ const display = document.getElementById('display');
 const buttons = document.querySelectorAll('.btn');
 
 function updateDisplay(value) {
-    display.textContent = value;
+    let str = value.toString();
+    if (str.includes('.') && str.length > 12) {
+        str = parseFloat(str).toPrecision(12);
+        str = parseFloat(str).toString();
+    } else if (str.length > 12) {
+        str = str.slice(0, 12);
+    }
+    display.textContent = str;
 }
 
 buttons.forEach(button => {
