@@ -47,9 +47,11 @@ buttons.forEach(button => {
 function handleClick(value) {
     if (!isNaN(value) || value === '.') {
         if (!operator) {
+            if (value === '.' && firstNum.includes('.')) return;
             firstNum += value;
             updateDisplay(firstNum);
         } else {
+            if (value === '.' && secondNum.includes('.')) return;
             secondNum += value;
             updateDisplay(secondNum);
         }
