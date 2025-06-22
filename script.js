@@ -1,28 +1,13 @@
-function add(a, b) {
-    return a + b;
-}
-function subtract(a, b) {
-    return a - b;
-}
-function multiply(a, b) {
-    return a * b;
-}
-function divide(a, b) {
-    if (b === 0) {
-        return 'Error';
-    }
-    return a / b;
-}
 function calculate(operation, a, b) {
     switch (operation) {
         case '+':
-            return add(a, b);
+            return a + b;
         case '-':
-            return subtract(a, b);
+            return a - b;
         case '*':
-            return multiply(a, b);
+            return a * b;
         case '/':
-            return divide(a, b);
+            return a / b;
         default:
             return b;
     }
@@ -32,8 +17,8 @@ let firstNum = '';
 let secondNum = '';
 let operator = '';
 let result = '';
-
 const display = document.getElementById('display');
+const opdisplay = document.getElementById('opdisplay')
 const buttons = document.querySelectorAll('.btn');
 
 function updateDisplay(value) {
@@ -67,7 +52,8 @@ function handleClick(value) {
         secondNum = '';
         operator = '';
         result = '';
-        updateDisplay('0');
+        updateDisplay('0')
+        opdisplay.textContent = '';
     } else if (value === '⌫') {
         if (secondNum) {
             secondNum = secondNum.slice(0, -1);
@@ -91,6 +77,8 @@ function handleClick(value) {
     } else {
         if (firstNum && !secondNum) {
             operator = value;
+            opdisplay.textContent = operator;
+
         }
     }
 }

@@ -96,14 +96,16 @@ body {
 .opdisplay {
   width: 20px;
   height: 20px;
-  font-size: 2rem;
+  font-size: 15px;
   padding: 10px 15px;
-  text-align: right;
   border: none;
   border-radius: 10px;
   background-color: #000;
   color: #0f0;
   margin-left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
